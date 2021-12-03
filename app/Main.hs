@@ -1,7 +1,6 @@
 module Main (main) where
 
-import BiologicalComputation (someFunc)
-
+import Data.DNA
 
 main :: IO ()
-main = someFunc
+main = undefined
