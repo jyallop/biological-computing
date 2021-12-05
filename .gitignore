@@ -49,6 +49,7 @@ tags
 *#
 .dir-locals.el
 TAGS
+*#*
 
 # other
 .DS_Store
