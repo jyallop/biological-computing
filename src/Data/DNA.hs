@@ -1,6 +1,7 @@
 module Data.DNA where
 
 data Nucleotide = A | C | G | T
+  deriving (Show, Eq)
 
 type DNA = [Nucleotide]
 
