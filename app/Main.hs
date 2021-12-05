@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Data.DNA
+import Parser.DNA
 
 main :: IO ()
-main = undefined
+main = (putStrLn . show . count . parseDNA) "A"
