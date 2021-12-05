@@ -1,4 +1,4 @@
-module Parser.DNA where
+module Parser.DNA(parseDNA) where
 
 import Data.DNA
 

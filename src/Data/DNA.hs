@@ -1,4 +1,4 @@
-module Data.DNA where
+module Data.DNA(DNA, count, Nucleotide(..)) where
 
 data Nucleotide = A | C | G | T
   deriving (Show, Eq)

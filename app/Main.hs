@@ -3,7 +3,7 @@ module Main (main) where
 import Data.DNA
 import Parser.DNA
 import System.Console.ArgParser
-import Control.Applicative
+import Data.Text(strip, pack, unpack)
 
 data Computation = Count Bool String
   deriving (Eq, Show)
@@ -23,6 +23,5 @@ main :: IO ()
 main = computationParser >>= (flip runApp) compute
 
 compute :: Computation -> IO ()
-compute (Count True file) = undefined
+compute (Count True file) = readFile file >>= (putStrLn . show . fmap count . parseDNA . unpack . strip . pack) 
 compute (Count False string) = (putStrLn . show . fmap count . parseDNA) string
-
