@@ -1,15 +1,14 @@
-module Data.DNA(DNA, count, Nucleotide(..)) where
+module Data.DNA(DNA, count, complement, reverseComplement) where
 
-data Nucleotide = A | C | G | T
-  deriving (Show, Eq)
+import Data.Nucleotide
 
 type DNA = [Nucleotide]
 
-count :: DNA -> (Int, Int, Int, Int)
-count = foldr addNucleotide (0, 0, 0, 0) 
+count :: DNA -> (Int, Int, Int, Int, Int)
+count = foldr addNucleotide (0, 0, 0, 0, 0) 
 
-addNucleotide :: Nucleotide -> (Int, Int, Int, Int) -> (Int, Int, Int, Int)
-addNucleotide A (a, c, g, t) = (a + 1, c, g, t)
-addNucleotide C (a, c, g, t) = (a, c + 1, g, t)
-addNucleotide G (a, c, g, t) = (a, c, g + 1, t)
-addNucleotide T (a, c, g, t) = (a, c, g, t + 1)
+complement :: DNA -> DNA
+complement = map nucleotideComplement
+
+reverseComplement :: DNA -> DNA
+reverseComplement = reverse . complement

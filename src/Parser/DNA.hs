@@ -1,13 +1,14 @@
 module Parser.DNA(parseDNA) where
 
 import Data.DNA
+import Data.Nucleotide
 
-parseDNA :: String -> Maybe DNA
-parseDNA = sequence . (map parseNucleotide)
+parseDNA :: String -> Either String DNA
+parseDNA = sequence . (map parseDNANucleotide)
 
-parseNucleotide :: Char -> Maybe Nucleotide
-parseNucleotide 'A' = Just A
-parseNucleotide 'T' = Just T
-parseNucleotide 'G' = Just G
-parseNucleotide 'C' = Just C
-parseNucleotide _ = Nothing
+parseDNANucleotide :: Char -> Either String Nucleotide 
+parseDNANucleotide 'A' = Right A
+parseDNANucleotide 'T' = Right T
+parseDNANucleotide 'G' = Right G
+parseDNANucleotide 'C' = Right C
+parseDNANucleotide x = Left ("Unable to parse character: " ++ [x])
