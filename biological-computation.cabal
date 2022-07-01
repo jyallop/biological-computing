@@ -45,6 +45,9 @@ library
   exposed-modules:     BiologicalComputation
                      , Parser.DNA
                      , Data.DNA
+                     , Data.Nucleotide
+                     , Data.RNA
+                     
 
 executable biological-computation
   import:              common-options
